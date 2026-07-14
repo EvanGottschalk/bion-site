@@ -141,7 +141,6 @@ export const HERO_SECTION_BUTTONS: PageButton[] = [
     },
 ]
 
-
 export const BOTTOM_SECTION_BUTTONS: PageButton[] = [
     {
         // Waitlist Signup — solid button, opens the popup
