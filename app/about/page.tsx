@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Cpu, Network, Zap, Users, Globe, Bot } from "lucide-react"
-import Link from "next/link"
 
 export default function AboutPage() {
   return (
@@ -41,9 +40,9 @@ export default function AboutPage() {
                 is used to power the inference or action, similar to an API call.
               </p>
               <Button asChild>
-                <Link href="/whitepaper">
+                <a href="/whitepaper" target="_blank" rel="noopener noreferrer">
                   Read Full Whitepaper <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
+                </a>
               </Button>
             </div>
             <div className="grid grid-cols-2 gap-4">

@@ -1,6 +1,53 @@
-import Link from "next/link"
 import Image from "next/image"
+import type { ReactNode } from "react"
 import { Github, Send } from "lucide-react"
+import { FooterLink } from "@/components/footer-link"
+import {
+  FOOTER_COLUMN_LEFT,
+  FOOTER_COLUMN_MIDDLE,
+  FOOTER_COLUMN_RIGHT,
+  type FooterLinkColumn,
+} from "@/config/ui_config"
+
+// Maps a social icon key from config to its rendered icon (colored via currentColor).
+const SOCIAL_ICONS: Record<string, (size: number) => ReactNode> = {
+  x: (size) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  ),
+  github: (size) => <Github style={{ width: size, height: size }} />,
+  telegram: (size) => <Send style={{ width: size, height: size }} />,
+}
+
+function LinkColumn({ column }: { column: FooterLinkColumn }) {
+  return (
+    <div>
+      <h3
+        className="font-semibold mb-3 sm:mb-4"
+        style={{ color: column.title.fontColor, fontSize: `${column.title.fontSize}px` }}
+      >
+        {column.title.label}
+      </h3>
+      <div className="space-y-2">
+        {column.links.map((link) => (
+          <FooterLink
+            key={link.label}
+            href={link.href}
+            target={link.target}
+            action={link.action}
+            fontColor={column.linkStyling.fontColor}
+            highlightFontColor={column.linkStyling.highlightFontColor}
+            fontSize={column.linkStyling.fontSize}
+            className="block"
+          >
+            {link.label}
+          </FooterLink>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export function Footer() {
   return (
@@ -22,58 +69,35 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold mb-3 sm:mb-4">Quick Links</h3>
-            <div className="space-y-2">
-              <Link href="/about" className="block text-sm text-muted-foreground hover:text-primary">
-                About BION
-              </Link>
-              <Link href="/whitepaper" className="block text-sm text-muted-foreground hover:text-primary">
-                Whitepaper
-              </Link>
-              <Link href="/team" className="block text-sm text-muted-foreground hover:text-primary">
-                Team
-              </Link>
-              <Link href="/exchanges" className="block text-sm text-muted-foreground hover:text-primary">
-                Exchanges
-              </Link>
-            </div>
-          </div>
+          <LinkColumn column={FOOTER_COLUMN_LEFT} />
 
           {/* Resources */}
-          <div>
-            <h3 className="font-semibold mb-3 sm:mb-4">Resources</h3>
-            <div className="space-y-2">
-              <Link href="#" className="block text-sm text-muted-foreground hover:text-primary">
-                Documentation
-              </Link>
-              <Link href="#" className="block text-sm text-muted-foreground hover:text-primary">
-                API Reference
-              </Link>
-              <Link href="#" className="block text-sm text-muted-foreground hover:text-primary">
-                Developer Tools
-              </Link>
-              <Link href="/contact" className="block text-sm text-muted-foreground hover:text-primary">
-                Support
-              </Link>
-            </div>
-          </div>
+          <LinkColumn column={FOOTER_COLUMN_MIDDLE} />
 
-          {/* Social Links */}
+          {/* Community */}
           <div>
-            <h3 className="font-semibold mb-3 sm:mb-4">Community</h3>
+            <h3
+              className="font-semibold mb-3 sm:mb-4"
+              style={{
+                color: FOOTER_COLUMN_RIGHT.title.fontColor,
+                fontSize: `${FOOTER_COLUMN_RIGHT.title.fontSize}px`,
+              }}
+            >
+              {FOOTER_COLUMN_RIGHT.title.label}
+            </h3>
             <div className="flex space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Github className="w-5 h-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Send className="w-5 h-5" />
-              </Link>
+              {FOOTER_COLUMN_RIGHT.links.map((link) => (
+                <FooterLink
+                  key={link.icon}
+                  href={link.href}
+                  target={link.target}
+                  ariaLabel={link.ariaLabel}
+                  fontColor={FOOTER_COLUMN_RIGHT.iconStyling.fontColor}
+                  highlightFontColor={FOOTER_COLUMN_RIGHT.iconStyling.highlightFontColor}
+                >
+                  {SOCIAL_ICONS[link.icon](FOOTER_COLUMN_RIGHT.iconStyling.size)}
+                </FooterLink>
+              ))}
             </div>
           </div>
         </div>

@@ -1,10 +1,10 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
+import { ConfigButton } from "@/components/config-button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, Cpu, Zap, Shield, Globe, Bot, Coins } from "lucide-react"
-import Link from "next/link"
+import { Cpu, Zap, Shield, Globe, Bot, Coins } from "lucide-react"
 import Image from "next/image"
+import { HERO_SECTION_BUTTONS, BOTTOM_SECTION_BUTTONS } from "@/config/ui_config"
 
 export default function HomePage() {
   return (
@@ -39,19 +39,9 @@ export default function HomePage() {
               industrial revolution. Built on Solana for speed and efficiency.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-              <Button size="lg" asChild className="w-full sm:w-auto">
-                <Link href="/whitepaper">
-                  Read Whitepaper <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="border-white/30 text-white hover:bg-white/10 hover:text-white bg-transparent w-full sm:w-auto"
-              >
-                <Link href="/exchanges">Get BION</Link>
-              </Button>
+              {HERO_SECTION_BUTTONS.map((button, index) => (
+                <ConfigButton key={index} button={button} />
+              ))}
             </div>
           </div>
         </div>
@@ -168,8 +158,8 @@ export default function HomePage() {
               <div className="text-white/70 text-sm sm:text-base">Total Supply</div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl font-bold text-accent mb-2">30%</div>
-              <div className="text-white/70 text-sm sm:text-base">Network Pool</div>
+              <div className="text-2xl sm:text-3xl font-bold text-accent mb-2">Solana</div>
+              <div className="text-white/70 text-sm sm:text-base">Origin Blockchain</div>
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-bold text-accent mb-2">$15.7T</div>
@@ -188,19 +178,9 @@ export default function HomePage() {
               Get started with BION tokens and power your AI automation today.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Button size="lg" asChild className="w-full sm:w-auto">
-                <Link href="/exchanges">
-                  Get BION Tokens <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="border-white/30 text-white hover:bg-white/10 hover:text-white bg-transparent w-full sm:w-auto"
-              >
-                <Link href="/about">Learn More</Link>
-              </Button>
+              {BOTTOM_SECTION_BUTTONS.map((button, index) => (
+                <ConfigButton key={index} button={button} />
+              ))}
             </div>
           </div>
         </div>
