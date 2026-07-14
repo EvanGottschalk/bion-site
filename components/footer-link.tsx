@@ -54,7 +54,7 @@ export function FooterLink({
         onClick={() => openWaitlist()}
         aria-label={ariaLabel}
         className={`${className ?? ""} cursor-pointer bg-transparent border-0 p-0 text-left`}
-        style={{ ...style, font: "inherit" }}
+        style={{ ...style, fontFamily: "inherit" }}
         {...handlers}
       >
         {children}
