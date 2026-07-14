@@ -200,7 +200,7 @@ export const TOP_RIGHT_MENU = {
             href: '/team',
         },
         {
-            label: 'Whitepaper',
+            label: 'BION Whitepaper',
             href: '/whitepaper',
         },
         {
@@ -339,7 +339,7 @@ export const FOOTER_COLUMN_LEFT: FooterLinkColumn = {
   },
   links: [
     // { label: 'About BION', href: '/about' },
-    { label: 'Whitepaper', href: '/whitepaper', target: '_blank' },
+    { label: 'BION Whitepaper', href: '/whitepaper', target: '_blank' },
     { label: 'Join Waitlist', action: 'waitlist' },
     // { label: 'Team', href: '/team' },
     // { label: 'Exchanges', href: '/exchanges' },
@@ -435,8 +435,8 @@ export const FAQ_PAGE = {
   FAQ_list: [
     { question: 'What is BION?',
       answer: 'BION is a utility token that powers AI automation and blockchain integration, designed for the fourth industrial revolution.' },
-    { question: 'How do I buy BION?',
-      answer: 'You can buy BION on Solana DEXs like Jupiter and Raydium, or wait for CEX listings coming soon.' },
+    { question: 'How do I get BION?',
+      answer: 'BION is not available on cryptocurrency exchanges yet, so please join the waitlist with the "Get Early Access" button. In the future, BION will be available on exchanges like Coinbase, Jupiter, Uniswap, etc.' },
     { question: 'What blockchain is BION on?',
       answer: 'BION is currently on Solana but is designed to be chain-agnostic with future multi-chain support.' },
     { question: 'How can I partner with BION?',
