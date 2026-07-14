@@ -16,20 +16,20 @@ export default function HomePage() {
         <div className="container mx-auto text-center">
           <div className="max-w-4xl mx-auto">
             <div className="mb-6 sm:mb-8 flex flex-col items-center">
-              <Image
+              {/* <Image
                 src="/bion-b-icon.png"
                 alt="BION B Icon"
                 width={60}
                 height={60}
                 className="mb-3 sm:mb-4 sm:w-20 sm:h-20"
                 priority
-              />
+              /> */}
               <Image
                 src="/bion-logo.png"
                 alt="BION Logo"
-                width={200}
-                height={48}
-                className="object-contain sm:w-[250px]"
+                width={300}
+                height={64}
+                className="object-contain sm:w-[450px]"
                 priority
               />
             </div>
