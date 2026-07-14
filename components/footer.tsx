@@ -103,7 +103,7 @@ export function Footer() {
         </div>
 
         <div className="border-t mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-muted-foreground">
-          <p>&copy; 2025 BION Token. All rights reserved.</p>
+          <p>&copy; 2026 BION Token. All rights reserved.</p>
           <p className="mt-2">BION is a utility token for AI automation and is not intended for investment purposes.</p>
         </div>
       </div>
