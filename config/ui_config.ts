@@ -363,6 +363,8 @@ export const FOOTER_COLUMN_MIDDLE: FooterLinkColumn = {
     // { label: 'Developer Tools', href: '#' },
     // { label: 'Support', href: '/contact' },
     { label: 'FAQ', href: '/faq' },
+    { label: 'Documentation', href: 'https://aphid-ai.gitbook.io/aphid-ai-docs/glossary/bion-token' },
+    { label: 'API Reference', href: 'https://aphid-ai.gitbook.io/aphid-ai-docs/aphid-api/api-overview' },
   ],
 }
 
