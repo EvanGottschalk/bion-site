@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { WaitlistProvider } from "@/components/waitlist/waitlist-context"
+import { AphidChatbot } from "@/components/aphid-chatbot"
 import "./globals.css"
 
 const inter = Inter({
@@ -35,6 +36,8 @@ export default function RootLayout({
           <Suspense fallback={null}>{children}</Suspense>
         </WaitlistProvider>
         <Analytics />
+        {/* Aphid chatbot — loaded last so it comes up after page content */}
+        <AphidChatbot />
       </body>
     </html>
   )
